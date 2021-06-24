@@ -15,9 +15,6 @@
             "Google": "https://deploy.cloud.run/?git_repo=https://github.com/redis-developer/nycbike.git" 
         }
     ],
-    
-    
-    
     "language": ["Go", "JavaScript"],
     "redis_commands": [
       "MATCH",
