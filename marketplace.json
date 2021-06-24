@@ -1,5 +1,5 @@
 {
-    "app_name": "NYC Bike-Sharing Trips using RedisGraph",
+    "app_name": "NYC Bike-Sharing Trips",
     "description": "A visual geospatial index of over 58 million bikeshare trips across NYC using RedisGraph",
     "rank": "51",
     "type": "Full App",
