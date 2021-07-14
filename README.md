@@ -4,7 +4,6 @@ _[Build on Redis Hackathon](https://redislabs.com/hackathon-2021/) entry, mitchs
 
 A visual geospatial index of over 58 million [bikeshare trips](https://www.citibikenyc.com/system-data) across NYC. This could be helpful to capacity plan across the network, allowing you to investigate aggregated rush hour and weekend travel patterns in milliseconds!
 
-**Live Demo**: https://nycbike.mitchsw.com/
 
 ![Full visual UI](https://raw.githubusercontent.com/mitchsw/nycbike/main/full_ui.png?raw=true)*Full visual UI.*
 
