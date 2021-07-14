@@ -7,7 +7,7 @@
     "repo_url": "https://github.com/redis-developer/nycbike",
     "download_url": "https://github.com/redis-developer/nycbike/archive/refs/heads/main.zip",
     "hosted_url": "https://nycbike.mitchsw.com/",
-    "quick_deploy": "true",
+    "quick_deploy": "false",
     "deploy_buttons": [
         {
             "heroku": "https://heroku.com/deploy?template=https://github.com/redis-developer/nycbike.git" 
