@@ -34,7 +34,7 @@
     "redis_modules": ["RedisGraph"],
     "app_image_urls": ["https://raw.githubusercontent.com/redis-developer/nycbike/main/full_ui.png?raw=true"],
     "youtube_url": "https://www.youtube.com/watch?v=L7JiZFOp6Jg",
-    "special_tags": [],
+    "special_tags": ["Hackathon"],
     "verticals": ["Others"],
     "markdown": "https://raw.githubusercontent.com/redis-developer/nycbike/main/README.md"
   }
