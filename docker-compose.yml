@@ -1,14 +1,12 @@
-version: '3.3'
+version: '3'
 
 services:
     redismod:
         image: redislabs/redismod
-        command: /usr/local/etc/redis/redis.conf
         restart: always
         volumes:
-            - ./redis.conf:/usr/local/etc/redis/redis.conf
             # Location of dump.rdb, containing the journeys graph.
-            - ./redis_data/:/data/
+            - redis_data:/data/
         ports:
             - 6379:6379
 
@@ -30,3 +28,6 @@ services:
         ports:
             - 80:80
             - 443:443
+
+volumes:
+    redis_data:
