@@ -9,6 +9,7 @@ A visual geospatial index of over 58 million [bikeshare trips](https://www.citib
 
 ![Zoomed-in UI](https://raw.githubusercontent.com/mitchsw/nycbike/main/zoom_ui.png?raw=true)*Zoomed-in view of trips between a few stations.*
 
+-----
 ## System Overview
 
 The visual UI is built using:
@@ -88,9 +89,10 @@ This either creates a new edge with one trip, or increments the appropriate coun
 
 To efficiently write all 56 million trips, I use [pipelining](https://redis.io/topics/pipelining) and turn [`CLIENT REPLY OFF`](https://redis.io/commands/client-reply) for each batch. The bulk import takes a couple of hours.
 
+-----
 ## How to run
 
-Create a [Mapbox Access Token](https://docs.mapbox.com/help/glossary/access-token/) and write it to `frontend/.env`:
+Create a [Mapbox Access Token](https://docs.mapbox.com/help/glossary/access-token/) and write it to `frontend/.env` (hint: use the public access token that starts with "pk." ):
 
 ```sh
 echo "REACT_APP_MAPBOX_ACCESS_TOKEN=<your-token>" > frontend/.env
@@ -100,7 +102,7 @@ Build the visual UI components, and run it using Docker Compose:
 
 ```sh
 $ docker build -t nycbike backend
-$ cd frontend; npm install; npm run-script build; cd ..
+$ cd frontend; export NODE_OPTIONS=--openssl-legacy-provider; npm install; npm run-script build; cd ..
 $ docker-compose up
 
 redismod_1  | 1:C 13 May 2021 03:12:18.017 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
