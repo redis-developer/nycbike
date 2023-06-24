@@ -1,6 +1,6 @@
 {
     "app_name": "NYC Bike-Sharing Trips",
-    "description": "A visual geospatial index of over 58 million bikeshare trips across NYC using RedisGraph",
+    "description": "A visual geospatial index of over 58 million bikeshare trips across NYC using Redis",
     "rank": 49,
     "type": "Full App",
     "contributed_by": "Community",
@@ -11,10 +11,10 @@
     "quick_deploy": "false",
     "deploy_buttons": [
         {
-            "heroku": "https://heroku.com/deploy?template=https://github.com/redis-developer/nycbike.git" 
+            "heroku": "https://heroku.com/deploy?template=https://github.com/redis-developer/nycbike.git"
         },
         {
-            "Google": "https://deploy.cloud.run/?git_repo=https://github.com/redis-developer/nycbike.git" 
+            "Google": "https://deploy.cloud.run/?git_repo=https://github.com/redis-developer/nycbike.git"
         }
     ],
     "language": ["Go", "JavaScript"],
@@ -31,7 +31,7 @@
       "SET",
       "WITH"
     ],
-    "redis_modules": ["RedisGraph"],
+    "redis_features": ["Graph"],
     "app_image_urls": ["https://raw.githubusercontent.com/redis-developer/nycbike/main/full_ui.png?raw=true"],
     "youtube_url": "https://www.youtube.com/watch?v=L7JiZFOp6Jg",
     "special_tags": ["Hackathon"],
