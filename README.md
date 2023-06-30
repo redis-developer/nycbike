@@ -13,21 +13,21 @@ A visual geospatial index of over 58 million [bikeshare trips](https://www.citib
 ## System Overview
 
 The visual UI is built using:
-  1.  [RedisGraph](https://oss.redislabs.com/redisgraph/) through [redismod](https://hub.docker.com/r/redislabs/redismod),
+  1.  [Redis Graph](https://oss.redislabs.com/redisgraph/) through [redismod](https://hub.docker.com/r/redislabs/redismod),
   2. a Go backend (behind an nginx reverse proxy),
-  3. a React frontend. 
+  3. a React frontend.
 
 This infrastructure can be started from docker-compose.yml.
 
-This repo also includes a Go importer program to load the public dataset into RedisGraph.
+This repo also includes a Go importer program to load the public dataset into Redis Graph.
 
 ### redismod
 
-This project uses the [redismod](https://hub.docker.com/r/redislabs/redismod) Docker image. This was used (as per Hackathon requirements) instead Redis Enterprise Cloud as that did not yet support RedisGraph v2.4 (at time of development).
+This project uses the [redismod](https://hub.docker.com/r/redislabs/redismod) Docker image. This was used (as per Hackathon requirements) instead Redis Enterprise Cloud as that did not yet support Redis Graph v2.4 (at time of development).
 
 ### backend
 
-The Go backend uses the [redisgraph-go](https://github.com/RedisGraph/redisgraph-go) library to proxy graph queries from the frontend. The Go library didn't support the new `point()` type, so I sent PR [redisgraph-go#45](https://github.com/RedisGraph/redisgraph-go/pull/45) adding this feature.
+The Go backend uses the [redisgraph-go](https://github.com/Redis Graph/redisgraph-go) library to proxy graph queries from the frontend. The Go library didn't support the new `point()` type, so I sent PR [redisgraph-go#45](https://github.com/RedisGraph/redisgraph-go/pull/45) adding this feature.
 
 To mark every station on the map (`/stations` API call), a simple Cypher query is used to fetch all the locations:
 
@@ -80,7 +80,7 @@ MATCH (src:Station{id: $src})
 MATCH (dst:Station{id: $dst})
 MERGE (src)-[t:Trip]->(dst)
 ON CREATE
-  SET t.counts = [n in range(0, 167) | CASE WHEN n = $hour THEN 1 ELSE 0 END] 
+  SET t.counts = [n in range(0, 167) | CASE WHEN n = $hour THEN 1 ELSE 0 END]
 ON MATCH
   SET t.counts = t.counts[0..$hour] + [t.counts[$hour]+1] + t.counts[($hour+1)..168]
 ```
